@@ -1,18 +1,45 @@
 /* Existing styles (if any) */
 
+/* App wrapper */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content */
+.main-content {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+}
+
 /* Footer styles */
 .site-footer {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: rgba(173, 216, 230, 0.7);
+  color: #333;
   padding: 2rem 0;
   text-align: center;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
 }
 
 .site-footer p {
   margin-bottom: 1rem;
   font-size: 0.9rem;
   letter-spacing: 1px;
+  color: #333;
 }
 
 .site-footer nav ul {
@@ -24,7 +51,7 @@
 }
 
 .site-footer nav ul li a {
-  color: #ffffff;
+  color: #333;
   text-decoration: none;
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -33,42 +60,79 @@
 }
 
 .site-footer nav ul li a:hover {
-  color: #f0f0f0;
+  color: #1a1a1a;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-/* Add a subtle line above the footer */
+/* Remove the line above the footer */
 .site-footer::before {
-  content: '';
-  display: block;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #ffffff, transparent);
-  margin-bottom: 1.5rem;
+  display: none;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 1rem 0;
+  }
+
+  .site-footer nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 /* Header styles */
 .site-header {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  padding: 2rem 0;
-  text-align: center;
+  background-color: rgba(173, 216, 230, 0.7);
+  color: #333;
+  padding: 1rem 2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #1a5f7a;
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 2.5rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #333;
 }
 
-/* Add a subtle line below the header */
+.nav-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-toggle:hover {
+  color: #1a5f7a;
+}
+
+/* Remove the line below the header */
 .site-header::after {
-  content: '';
-  display: block;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #ffffff, transparent);
-  margin-top: 1.5rem;
+  display: none;
 }
 
 /* Optional: Add a tagline */

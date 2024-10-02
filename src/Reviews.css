@@ -2,13 +2,30 @@
     max-width: 800px;
     margin: 2rem auto;
     padding: 2rem;
+    transform-style: preserve-3d;
   }
   
   .review-section h2 {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #333;
+    font-size: 2.5rem;
+    color: #1a5f7a;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .review-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #1a5f7a, #66b2ff);
+    border-radius: 2px;
   }
   
   .review-list {
@@ -17,12 +34,51 @@
   }
   
   .review-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background: linear-gradient(135deg, rgba(173, 216, 230, 0.7) 0%, rgba(173, 216, 230, 0.4) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1), 
+      0 0 20px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+  }
+  
+  .review-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0) 80%
+    );
+    transform: rotate(30deg);
+    pointer-events: none;
+  }
+  
+  .review-item.hovered {
+    z-index: 1;
+  }
+  
+  .review-item h3,
+  .review-item p {
+    transition: transform 0.3s ease;
+  }
+  
+  .review-item.hovered h3 {
+    transform: translateZ(30px);
+  }
+  
+  .review-item.hovered p {
+    transform: translateZ(25px);
   }
   
   .review-item h3 {
@@ -32,10 +88,40 @@
   
   .review-author {
     font-style: italic;
-    color: #666;
+    color: #555;
     margin-bottom: 0.5rem;
+    position: relative;
   }
   
   .review-content {
     margin-top: 1rem;
+    position: relative;
+    transition: transform 0.1s ease;
+    color: #333;
+  }
+  
+  .review-item:hover p {
+    transform: translateZ(25px);
+  }
+  
+  /* Add this to create a subtle background for the Aero effect */
+  body {
+    background: linear-gradient(45deg, #e6f2ff, #f0f8ff);
+    min-height: 100vh;
+    color: #333;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .review-section {
+      padding: 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .review-item {
+      padding: 1rem;
+    }
   }

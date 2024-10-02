@@ -1,6 +1,5 @@
 import React from 'react';
 import ReviewItem from './ReviewItem';
-import '../Reviews.css';  // Add this line
 
 const ReviewSection = ({ reviews }) => {
   return (
