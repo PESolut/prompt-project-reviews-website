@@ -1,0 +1,80 @@
+/* Existing styles (if any) */
+
+/* Footer styles */
+.site-footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.site-footer p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.site-footer nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.site-footer nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.site-footer nav ul li a:hover {
+  color: #f0f0f0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Add a subtle line above the footer */
+.site-footer::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ffffff, transparent);
+  margin-bottom: 1.5rem;
+}
+
+/* Header styles */
+.site-header {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Add a subtle line below the header */
+.site-header::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ffffff, transparent);
+  margin-top: 1.5rem;
+}
+
+/* Optional: Add a tagline */
+.site-header .tagline {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.8;
+}
