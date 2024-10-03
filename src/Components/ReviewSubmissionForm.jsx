@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import StarRating from './StarRating';
 import './ReviewSubmissionForm.css';
 
 function ReviewSubmissionForm({ onSubmit }) {
   const [title, setTitle] = useState('');
   const [name, setName] = useState('');
   const [content, setContent] = useState('');
+  const [rating, setRating] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ title, name, content });
+    onSubmit({ title, name, content, rating });
     setTitle('');
     setName('');
     setContent('');
+    setRating(0);
   };
 
   return (
@@ -39,6 +42,11 @@ function ReviewSubmissionForm({ onSubmit }) {
             onChange={(e) => setName(e.target.value)}
             required
           />
+        </div>
+
+        <div className="form-group">
+          <label>Rating:</label>
+          <StarRating rating={rating} onRatingChange={setRating} />
         </div>
 
         <div className="form-group">

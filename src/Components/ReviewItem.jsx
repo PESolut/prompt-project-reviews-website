@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import useMousePosition from '../useMousePosition';
+import StarRating from './StarRating';
 
 const ReviewItem = ({ review }) => {
   const ref = useRef(null);
@@ -54,6 +55,9 @@ const ReviewItem = ({ review }) => {
     >
       <h3>{review.title}</h3>
       <p className="review-author">By: {review.name}</p>
+      <div className="review-rating">
+        <StarRating rating={review.rating} readOnly={true} />
+      </div>
       <p className="review-content">{review.content}</p>
     </li>
   );

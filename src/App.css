@@ -115,6 +115,9 @@
   font-size: 2rem;
   letter-spacing: 1px;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-toggle {
@@ -141,4 +144,134 @@
   font-size: 1rem;
   font-style: italic;
   opacity: 0.8;
+}
+
+/* Responsive styles for header */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .site-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .nav-toggle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .logo-icon {
+    font-size: 1.2rem;
+  }
+
+  .nav-toggle {
+    font-size: 1rem;
+  }
+}
+
+/* Side navbar styles */
+.side-nav {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: rgba(173, 216, 230, 0.0); /* Light blue background */
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  padding-top: 60px;
+  backdrop-filter: blur(10px);
+}
+
+.side-nav.open {
+  right: 0;
+}
+
+.side-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.side-nav ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.side-nav ul li a, 
+.side-nav ul li button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  width: 100%;
+  height: 120px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.side-nav ul li a i, 
+.side-nav ul li button i {
+  font-size: 3.5rem; /* Increased icon size */
+  transition: all 0.3s ease;
+}
+
+.side-nav ul li a span, 
+.side-nav ul li button span {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.side-nav ul li a:hover span, 
+.side-nav ul li button:hover span {
+  bottom: 10px;
+  opacity: 1;
+}
+
+.side-nav ul li a:hover i, 
+.side-nav ul li button:hover i {
+  transform: translateY(-10px);
+}
+
+.side-nav ul li:nth-child(1) a { background-color: rgba(0, 120, 215, 0.7); }
+.side-nav ul li:nth-child(2) a { background-color: rgba(0, 178, 148, 0.7); }
+.side-nav ul li:nth-child(3) a { background-color: rgba(232, 17, 35, 0.7); }
+.side-nav ul li:nth-child(4) button { background-color: rgba(136, 23, 152, 0.7); }
+
+.side-nav ul li a:hover, 
+.side-nav ul li button:hover {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+.side-nav ul li a:active, 
+.side-nav ul li button:active {
+  transform: scale(0.9);
 }

@@ -98,3 +98,19 @@
       padding: 0.5rem;
     }
   }
+
+  .star-rating {
+    display: flex;
+    align-items: center;
+  }
+
+  .star-rating input[type="radio"] {
+    display: none;
+  }
+
+  .star-rating .star {
+    cursor: pointer;
+    transition: color 200ms;
+    font-size: 1.5rem;
+    margin-right: 5px;
+  }

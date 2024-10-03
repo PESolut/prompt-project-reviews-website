@@ -8,11 +8,10 @@ import './App.css'  // Add this line
 
 const App = () => {
   const [reviews, setReviews] = useState(() => {
-    // Initialize reviews from local storage or use default if not available
     const savedReviews = localStorage.getItem('reviews');
     return savedReviews ? JSON.parse(savedReviews) : [
-      { id: 1, title: 'Great Product', name: 'John Doe', content: 'This product exceeded my expectations!' },
-      { id: 2, title: 'Could be better', name: 'Jane Smith', content: 'It\'s okay, but there\'s room for improvement.' }
+      { id: 1, title: 'Great Product', name: 'John Doe', content: 'This product exceeded my expectations!', rating: 5 },
+      { id: 2, title: 'Could be better', name: 'Jane Smith', content: 'It\'s okay, but there\'s room for improvement.', rating: 3 }
     ];
   });
 
@@ -28,9 +27,15 @@ const App = () => {
     ]);
   };
 
+  // Add this function to clear local storage
+  const clearLocalStorage = () => {
+    localStorage.removeItem('reviews');
+    setReviews([]);
+  };
+
   return (
     <div className="app-wrapper">
-      <Header />
+      <Header onClearReviews={clearLocalStorage} />
       <main className="main-content">
         <ReviewSection reviews={reviews} />
         <ReviewSubmissionForm onSubmit={addReview} />

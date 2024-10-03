@@ -125,3 +125,16 @@
       padding: 1rem;
     }
   }
+
+  .review-rating {
+    margin-bottom: 0.5rem;
+  }
+
+  .review-rating .fa-star {
+    color: #e4e5e9;
+    margin-right: 2px;
+  }
+
+  .review-rating .fa-star.checked {
+    color: #ffc107;
+  }
